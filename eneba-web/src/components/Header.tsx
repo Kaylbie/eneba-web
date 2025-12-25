@@ -15,7 +15,7 @@ const Header = ()=>{
     return(
         
         <header className="w-full bg-[#4618ac] h-24">
-            <div className="h-full max-w-310 mx-auto flex items-center p-5 ">
+            <div className="h-full max-w-310 mx-auto flex items-center">
 
                 <div className="mr-5 shrink-0">
                     <Link to="/">
@@ -55,7 +55,7 @@ const Header = ()=>{
                 <div>
                     <Button variant="outline" size="sm" className="border-none shadow-none hover:bg-transparent hover:text-[#fad318] cursor-pointer m-0">
                         <img src={lt_icon} className="size-4"/>
-                        <div className="flex gap-1.5 text-2xs font-regular">
+                        <div className="flex gap-1.5 text-2xs font-light">
                             <span>English EU</span>
                             <span>|</span>
                             <span>EUR</span>
@@ -63,7 +63,7 @@ const Header = ()=>{
                         
                     </Button>
                 </div>
-                <div className="w-full flex items-center justify-end">
+                <div className="w-full flex items-center justify-end font-light">
                     
                 <div >
                     <Button variant="outline" className="border-none shadow-none hover:bg-transparent hover:text-[#fad318] cursor-pointer">
@@ -75,7 +75,7 @@ const Header = ()=>{
                         <CartIcon className="size-6"/>
                     </Button>
                 </div>
-                <div className="flex items-center font-normal text-xs">
+                <div className="flex items-center text-xs">
                     <div>
                         <Button variant="outline" size="sm" className="p-0 border-none shadow-none hover:bg-transparent hover:text-[#fad318] cursor-pointer">
                             <PersonIcon className="size-6"/>Log in
