@@ -21,6 +21,7 @@ const Product = ({
 }:ProductProps)=>{
     
     return(
+        <>
         <div className="min-w-60 max-w-70 bg-[#1f0a4d] text-[0.8rem] border-[#63e3c2] border cursor-pointer">
             <div className="relative">
                 <div className="h-85 w-full">
@@ -40,7 +41,6 @@ const Product = ({
             <div className="leading-none font-medium text-[0.8rem]">
                
                 <div className="p-[15px]">
-
                     <div>
                         <div className="line-clamp-2 mb-[8px] leading-4">{title}</div>
                         <div className="text-[#23c299]">{region}</div>
@@ -69,7 +69,7 @@ const Product = ({
             </div>
             
         </div>
-
+        </>
     )
 };
 export default Product;
