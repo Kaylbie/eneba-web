@@ -81,7 +81,7 @@ const Header = ()=>{
                             <PersonIcon className="size-6"/>Log in
                         </Button>
                     </div>
-                   <span> | </span>
+                    <span> | </span>
                     <div>
                         <Button variant="outline" size="sm" className="border-none shadow-none hover:bg-transparent hover:text-[#fad318] cursor-pointer">
                             Register
