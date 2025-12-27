@@ -1,14 +1,16 @@
 import sf_image from "../assets/sf_item.jpg"
 import { HeartIcon } from "./icons/akar-icons-heart";
-import steam_icon from "../assets/steam_icon.png";
 import cashback_icon from "../assets/cashback_icon.png"
+import GamePlatform from "./GamePlatform";
+
 
 interface ProductProps{
     title:string,
     image:string,
     region:string,
-    price:string,
-    likes:string
+    price:number,
+    likes:number,
+    platform:string
 }
 
 
@@ -17,7 +19,8 @@ const Product = ({
     image,
     region,
     price,
-    likes
+    likes,
+    platform
 }:ProductProps)=>{
     
     return(
@@ -34,8 +37,7 @@ const Product = ({
                     <span>CASHBACK</span>
                 </div>
                 <div className="p-0.5 flex absolute bottom-0 backdrop-blur-[5px] w-full justify-center items-center backdrop-brightness-50">
-                    <img src={steam_icon} className="size-4 mr-1"/>
-                    <span className="text-[0.6rem]">Steam</span>
+                    <GamePlatform platform={platform}/>
                 </div>
             </div>
             <div className="leading-none font-medium text-[0.8rem]">
@@ -51,7 +53,8 @@ const Product = ({
                         <div className="text-[#b3aac9]">
                             <span>From </span>
                         </div>
-                        <div className="text-[1.4rem] leading-8">
+                        <div className="text-[1.4rem] leading-8 flex">
+                            <span>€</span>
                             <span>{price}</span>
                         </div>
                         <div className="text-[#84e916]">

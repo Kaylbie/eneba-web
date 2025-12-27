@@ -1,10 +1,15 @@
 import express from 'express'
 import {getGames, postGame} from './src/controller.ts'
-import { json } from 'node:stream/consumers';
-
+import cors from 'cors'
 
 const eneba = express();
 const port = 3000;
+
+const options = {
+    origin: 'http://localhost:5173',
+};
+
+eneba.use(cors(options));
 
 eneba.use(express.json())
 
