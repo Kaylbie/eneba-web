@@ -7,7 +7,7 @@ import App from './App.tsx'
 // eslint-disable-next-line react-refresh/only-export-components
 const Layout = () => {
   return (
-    <div className="font-helvetica text-amber-50 p-5">
+    <div className="font-helvetica text-amber-50">
       <Header />
       
       <Outlet />

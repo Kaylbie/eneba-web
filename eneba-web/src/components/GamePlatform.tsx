@@ -2,7 +2,6 @@ import steam_icon from "../assets/steam_icon.png";
 import nintendo_icon from "../assets/nintendo_icon.png"
 import xbox_icon from "../assets/xbox_icon.png"
 import ea_icon from "../assets/ea_icon.png"
-import { useState } from "react";
 
 
 interface GamePlatformProps{

@@ -2,16 +2,15 @@ import logo from "../assets/logo.svg"
 import {Link} from "react-router"
 import { HeartIcon } from "./icons/akar-icons-heart"
 import lt_icon from "../assets/lt_icon.png"
-import {
-  Command,
-  CommandInput,
-} from "@/components/ui/command"
+import Search from "./Search"
 import {Button} from "@/components/ui/button"
 import { CartIcon } from "./icons/akar-icons-cart"
 import { PersonIcon } from "./icons/akar-icons-person"
+import {useState} from "react"
+import SearchResultsList from "./SearchResultsList"
 
 const Header = ()=>{
-
+    const [searchResults, setResults]=useState([]);
     return(
         
         <header className="w-full bg-[#4618ac] h-24">
@@ -22,36 +21,15 @@ const Header = ()=>{
                         <img src={logo} className="h-13"/>
                     </Link>    
                 </div>
-            
-                <div className="flex min-w-[45%] mr-5">
-                    <Command
-                        className="w-full rounded-none border bg-background"
-                        shouldFilter={false}
-                    >
-                  <CommandInput
-                    placeholder="Search for games"
-                    //  defaultValue={userInput}
-                    //  onValueChange={(v) => handleUserInput(v)}
-                    className="text-[1.2rem] font-bold text-primary"
-                  />
+                <div className="min-w-[45%]">
+                    <div className="relative flex mr-5 border">
+                        <Search setResults={setResults}/>
+                        <SearchResultsList searchResults={searchResults}/>
 
-                  {/* <CommandList>
-                     <CommandEmpty>No results found.</CommandEmpty>
-                     <CommandGroup>
-                        {predictions.map((prediction) => (
-                           <CommandItem
-                              key={prediction.placePrediction?.placeId}
-                              value={prediction.placePrediction?.placeId}
-                              onSelect={(value) => handleSelectedPlace(value)}
-                           >
-                              {prediction.placePrediction?.text.text}
-                           </CommandItem>
-                        ))}
-                     </CommandGroup>
-                     <CommandSeparator />
-                  </CommandList> */}
-                    </Command>
+                    </div>
+                    
                 </div>
+                
                 <div>
                     <Button variant="outline" size="sm" className="border-none shadow-none hover:bg-transparent hover:text-[#fad318] cursor-pointer m-0">
                         <img src={lt_icon} className="size-4"/>

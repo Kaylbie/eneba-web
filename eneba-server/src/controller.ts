@@ -32,12 +32,10 @@ export const getGames = async(req:express.Request, res:express.Response)=>{
         if(!search){
             const games=await prisma.game.findMany({})
             res.json(games)
-            console.log("games")
         }
         else{
             const games = await prisma.$queryRaw`SELECT * FROM "Game" WHERE SIMILARITY(title, ${search}) > 0.2;`;
             res.json(games)
-            console.log("games")
         }
         
     }
