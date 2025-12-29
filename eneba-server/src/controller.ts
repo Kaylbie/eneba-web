@@ -4,14 +4,16 @@ import { prisma } from './lib/prisma.ts'
 
 export const postGame = async(req:express.Request, res:express.Response)=>{
     try{
-        const {title, imageSrc, region, price, likes, isAvailable, platform} = req.body
+        const {gameName, title, imageSrc, region, price, discount, likes, isAvailable, platform} = req.body
 
         const game = await prisma.game.create({
             data:{
+                gameName,
                 title,
                 imageSrc,
                 region,
                 price,
+                discount,
                 likes,
                 isAvailable,
                 platform
@@ -34,7 +36,7 @@ export const getGames = async(req:express.Request, res:express.Response)=>{
             res.json(games)
         }
         else{
-            const games = await prisma.$queryRaw`SELECT * FROM "Game" WHERE SIMILARITY(title, ${search}) > 0.2;`;
+            const games = await prisma.$queryRaw`SELECT * FROM "Game" WHERE SIMILARITY(gameName, ${search}) > 0.2;`;
             res.json(games)
         }
         

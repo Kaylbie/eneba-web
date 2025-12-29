@@ -9,13 +9,14 @@ datasource db {
 
 model Game{
   id Int @id @default(autoincrement())
+  gameName String
   title String
   imageSrc String
   region String
   price Decimal
+  discount Int
   likes Int
   isAvailable Boolean
   platform String
-
 }
 
