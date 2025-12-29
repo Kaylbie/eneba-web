@@ -5,9 +5,9 @@ import lt_icon from "../../assets/lt_icon.png"
 import Search from "./SearchBar"
 import { Button } from "@/components/ui/button"
 import { CartIcon } from "../icons/akar-icons-cart"
-import { PersonIcon } from "../icons/akar-icons-person"
+import eneba_icon  from "../../assets/eneba_icon.png"
 import { useState } from "react"
-import SearchResultsList from "./SearchResultsList"
+
 
 const Header = () => {
     const [searchResults, setResults] = useState([]);
@@ -23,8 +23,8 @@ const Header = () => {
                 </div>
                 <div className="min-w-[42%]">
                     <div className="relative mr-5 border">
-                        <Search setResults={setResults} searchResults={searchResults}/>
-                        
+                        <Search setResults={setResults} searchResults={searchResults} />
+
                     </div>
 
                 </div>
@@ -54,14 +54,11 @@ const Header = () => {
                     </div>
                     <div className="flex items-center text-xs">
                         <div>
-                            <Button variant="outline" size="sm" className="p-0 border-none shadow-none hover:bg-transparent hover:text-[#fad318] cursor-pointer">
-                                <PersonIcon className="size-6" />Log in
-                            </Button>
-                        </div>
-                        <span> | </span>
-                        <div>
-                            <Button variant="outline" size="sm" className="border-none shadow-none hover:bg-transparent hover:text-[#fad318] cursor-pointer">
-                                Register
+                            <Button
+                                variant="outline"
+                                size="icon"
+                                className="ml-3 border rounded-full shadow-none hover:bg-transparent hover:text-[#fad318] cursor-pointer">
+                                <img src={eneba_icon} className="size-7 rounded-full" />
                             </Button>
                         </div>
                     </div>
