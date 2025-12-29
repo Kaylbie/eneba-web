@@ -1,29 +1,33 @@
-import sf_image from "../../assets/sf_item.jpg"
 import { HeartIcon } from "../icons/akar-icons-heart";
 import cashback_icon from "../../assets/cashback_icon.png"
 import GamePlatform from "./GamePlatform";
 
 
 interface ProductProps {
+    gameName:string,
     title: string,
     image: string,
     region: string,
     price: number,
+    discount:number,
     likes: number,
     platform: string
 }
 
 
 const Product = ({
+    gameName,
     title,
     image,
     region,
     price,
+    discount,
     likes,
     platform
 }: ProductProps) => {
     const cashBack=price*0.11;
-
+    const discountPrice = price*(1-(discount/100))
+    
     return (
         <>
             <a href="/">
@@ -31,7 +35,7 @@ const Product = ({
                     <div className="relative">
                         <div className="h-90 w-full">
 
-                            <img src={sf_image} className="h-full w-full object-cover object-top" />
+                            <img src={image} className="h-full w-full object-cover object-top" />
 
                         </div>
                         <div className="p-1 flex absolute bottom-7 justify-start items-start bg-[#63e3c2] text-black font-bold text-[0.7rem]">
@@ -47,17 +51,30 @@ const Product = ({
                         <div className="p-[15px]">
                             <div>
                                 <div className="min-h-[2rem] line-clamp-2 mb-[8px] leading-4">{title}</div>
-                                <div className="text-[#23c299]">{region}</div>
+                                <div className="text-[#23c299]">{String(region).toUpperCase()}</div>
                             </div>
                         </div>
                         <div className="p-[15px] pt-0 font-bold">
                             <div>
-                                <div className="text-[#b3aac9]">
-                                    <span>From </span>
+                                <div className="text-[#b3aac9] flex">
+                                    <span>From&nbsp;</span>
+                                    {discount!=0 && (
+                                        <div>
+
+                                        <span className="line-through">€{Number(price).toFixed(2)}</span>
+                                        <span className="text-[#84e916]">&nbsp;-{discount}%</span>
+                                        </div>
+                                    )}
+                                    
                                 </div>
                                 <div className="text-[1.4rem] leading-8 flex">
-                                    <span>€</span>
-                                    <span>{price}</span>
+                                    {discount!=0 && (
+                                        <span >€{Number(discountPrice).toFixed(2)}</span>
+                                    )}
+                                    {discount==0 && (
+                                        <span>€{Number(price).toFixed(2)}</span>
+                                    )}
+                                    
                                 </div>
                                 <div className="text-[#84e916]">
                                     <span>Cashback: €{cashBack.toFixed(2)}</span>

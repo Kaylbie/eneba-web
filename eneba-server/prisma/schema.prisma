@@ -7,16 +7,15 @@ datasource db {
   provider = "postgresql"
 }
 
-model Game{
-  id Int @id @default(autoincrement())
-  gameName String
-  title String
-  imageSrc String
-  region String
-  price Decimal
-  discount Int
-  likes Int
+model Game {
+  id          Int     @id @default(autoincrement())
+  title       String
+  imageSrc    String
+  region      String
+  price       Decimal
+  likes       Int
   isAvailable Boolean
-  platform String
+  platform    String
+  gameName    String
+  discount    Int
 }
-

@@ -14,10 +14,12 @@ import {
 function Home() {
     type Game = {
         id: number,
+        gameName:string,
         title: string,
         imageSrc: string,
         region: string,
         price: number,
+        discount: number,
         likes: number,
         isAvailable: boolean,
         platform: string
@@ -33,7 +35,7 @@ function Home() {
                 console.log(err)
             })
     }, [])
-
+    
     return (
         <>
             <div>
@@ -46,10 +48,12 @@ function Home() {
                             <CarouselItem className="pl-4 basis-1/4">
                                 <div className="p-1">
                                     <Product
+                                        gameName={game.gameName}
                                         title={game.title}
                                         image={game.imageSrc}
                                         region={game.region}
                                         price={game.price}
+                                        discount={game.discount}
                                         platform={game.platform}
                                         likes={game.likes} />
                                 </div>
