@@ -14,18 +14,17 @@ const Header = () => {
     return (
 
         <header className="w-full bg-[#4618ac] h-24">
-            <div className="h-full max-w-310 mx-auto flex items-center">
+            <div className="h-full max-w-270 mx-auto flex items-center">
 
                 <div className="mr-5 shrink-0">
                     <Link to="/">
                         <img src={logo} className="h-13" />
                     </Link>
                 </div>
-                <div className="min-w-[45%]">
-                    <div className="relative flex mr-5 border">
-                        <Search setResults={setResults} />
-                        <SearchResultsList searchResults={searchResults} />
-
+                <div className="min-w-[42%]">
+                    <div className="relative mr-5 border">
+                        <Search setResults={setResults} searchResults={searchResults}/>
+                        
                     </div>
 
                 </div>

@@ -1,14 +1,56 @@
-import Content from "../components/SearchContentPage.tsx"
+import Product from "../components/gameCard/Product";
+import { useState, useEffect } from "react";
+import axios from "axios";
+import {useSearchParams} from "react-router"
 
-function Results() {
+const Content = () => {
+    type Game = {
+        id: number,
+        title: string,
+        imageSrc: string,
+        region: string,
+        price: number,
+        likes: number,
+        isAvailable: boolean,
+        platform: string
+    }
+    const [searchParams, setSearchParams] = useSearchParams();
 
-  return (
-    <>
-      <div className="relative bg-[#4618ac] text-primary h-full max-w-310 mx-auto">
-      <Content/>
-      </div>
-    </>
-  )
-}
+    const [searchResultsNumber, setSearchResults] = useState([])
+    const [games, setGames] = useState<Game[]>([]);
+    
+    useEffect(() => {
+        axios.get(`http://localhost:3000/list?search=${searchParams.get("text")}`).then((response) => {
+            setGames(response.data);
+            setSearchResults(response.data.length)
+        })
+            .catch((err) => {
+                console.log(err)
+            })
+    }, [])
+    return (
+        <>
+            <div className="flex mt-[30px] mb-[30px]">
+                <span className="font-normal">Results found:&nbsp;</span>
+                <span className="font-bold">{searchResultsNumber}</span>
+            </div>
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+                {games.map((game) => (
+                    <Product
+                        title={game.title}
+                        image={game.imageSrc}
+                        region={game.region}
+                        price={game.price}
+                        platform={game.platform}
+                        likes={game.likes}
+                    />
+                ))}
 
-export default Results
+            </div>
+
+
+        </>
+    )
+};
+
+export default Content;

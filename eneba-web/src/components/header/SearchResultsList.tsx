@@ -1,29 +1,29 @@
 import SearchBarDropdownItem from "../header/SearchBarDropdownItem";
 
-type SearchResult = { 
+type SearchResult = {
     id: string;
     title: string;
     imageSrc: string
     price: number
 
 };
-
-const SearchResultsList = ({ searchResults }: { searchResults: SearchResult[] }) => {
+type SearchResultsListProps = {
+  searchResults: SearchResult[]
+}
+const SearchResultsList = ({ searchResults}: SearchResultsListProps) => {
     return (
         <>
-            {searchResults.length > 0 && (
-                <div className="absolute left-0 top-full z-10 border overflow-y-scroll w-full bg-background">
-                    {searchResults.map((result) => (
-                        <div key={result.id}>
-                            <SearchBarDropdownItem 
-                            title={result.title}
-                            image={result.imageSrc}
-                            price={result.price}
-                            />
-                        </div>
-                    ))}
-                </div>
-            )}
+
+            <div className="absolute top-full left-0 mt-0.5 w-full bg-background shadow-lg max-h-[70vh] overflow-y-auto">
+      {searchResults.map(result => (
+        <SearchBarDropdownItem
+          key={result.id}
+          title={result.title}
+          image={result.imageSrc}
+          price={result.price}
+        />
+      ))}
+    </div>
         </>
     );
 };
