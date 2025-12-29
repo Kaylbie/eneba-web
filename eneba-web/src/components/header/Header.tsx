@@ -21,7 +21,7 @@ const Header = () => {
                         <img src={logo} className="h-13" />
                     </Link>
                 </div>
-                <div className="min-w-[42%]">
+                <div className="min-w-[50%]">
                     <div className="relative mr-5 border">
                         <Search setResults={setResults} searchResults={searchResults} />
 

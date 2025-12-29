@@ -3,8 +3,9 @@ import SearchBarDropdownItem from "../header/SearchBarDropdownItem";
 type SearchResult = {
     id: string;
     title: string;
-    imageSrc: string
-    price: number
+    imageSrc: string;
+    price: number;
+    discount:number;
 
 };
 type SearchResultsListProps = {
@@ -21,6 +22,7 @@ const SearchResultsList = ({ searchResults}: SearchResultsListProps) => {
           title={result.title}
           image={result.imageSrc}
           price={result.price}
+          discount={result.discount}
         />
       ))}
     </div>
