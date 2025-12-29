@@ -32,7 +32,7 @@ const Search = ({ setResults, searchResults }) => {
             )}
 
             <div className="relative z-50 w-full">
-                <form className="w-full flex items-center" action="/all" method="get">
+                <form className="w-full flex items-center bg-background" action="/all" method="get">
                     <CiSearch className="size-9 ml-2" />
                     <Input className="border-none h-15 w-full text-[1.2rem]! font-bold" placeholder="Search for games"
                         value={input} name="text" onChange={(e) => handleChange(e.target.value)} />
