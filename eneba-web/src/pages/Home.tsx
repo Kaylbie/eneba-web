@@ -1,6 +1,6 @@
-import Content from "./components/Content.tsx"
+import Content from "../components/SearchContentPage.tsx"
 
-function App() {
+function Home() {
 
   return (
     <>
@@ -11,4 +11,4 @@ function App() {
   )
 }
 
-export default App
+export default Home

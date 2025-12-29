@@ -1,8 +1,8 @@
 import { createRoot } from 'react-dom/client'
-import Header from "./components/Header.tsx"
+import Header from "./components/header/Header.tsx"
 import { Outlet, RouterProvider, createBrowserRouter } from "react-router";
 import './index.css'
-import App from './App.tsx'
+import Results from './pages/Results.tsx'
 
 // eslint-disable-next-line react-refresh/only-export-components
 const Layout = () => {
@@ -23,10 +23,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <App />,
+        element: <Results />,
       },
+      {
+        path:"/all",
+        element:<Results/>
+      }
     ],
   },
+  
 ]);
 
 
