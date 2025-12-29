@@ -14,7 +14,7 @@ import {
 function Home() {
     type Game = {
         id: number,
-        gameName:string,
+        gameName: string,
         title: string,
         imageSrc: string,
         region: string,
@@ -26,16 +26,24 @@ function Home() {
     }
 
     const [games, setGames] = useState<Game[]>([]);
+    const shuffle = <T,>(array: T[]): T[] => {
+        const copy = [...array]
+        for (let i = copy.length - 1; i > 0; i--) {
+            const j = Math.floor(Math.random() * (i + 1))
+                ;[copy[i], copy[j]] = [copy[j], copy[i]]
+        }
+        return copy
+    }
 
     useEffect(() => {
         axios.get(`http://localhost:3000/list`).then((response) => {
-            setGames(response.data);
+            setGames(shuffle(response.data));
         })
             .catch((err) => {
                 console.log(err)
             })
     }, [])
-    
+
     return (
         <>
             <div>
