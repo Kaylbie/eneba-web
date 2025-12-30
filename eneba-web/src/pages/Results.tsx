@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import {useSearchParams} from "react-router"
 
+
 const Content = () => {
     type Game = {
         id: number,
@@ -15,13 +16,15 @@ const Content = () => {
         isAvailable: boolean,
         platform: string
     }
+    const API_BASE = import.meta.env.VITE_FORTAS_API_BASE;
+
     const [searchParams] = useSearchParams();
 
     const [searchResultsNumber, setSearchResults] = useState(0)
     const [games, setGames] = useState<Game[]>([]);
     
     useEffect(() => {
-        axios.get(`http://localhost:3000/list?search=${searchParams.get("text")}`).then((response) => {
+        axios.get(`${API_BASE}/list?search=${searchParams.get("text")}`).then((response) => {
             setGames(response.data);
             setSearchResults(response.data.length)
         })
