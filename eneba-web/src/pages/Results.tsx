@@ -6,7 +6,6 @@ import {useSearchParams} from "react-router"
 const Content = () => {
     type Game = {
         id: number,
-        gameName:string,
         title: string,
         imageSrc: string,
         region: string,
@@ -16,7 +15,7 @@ const Content = () => {
         isAvailable: boolean,
         platform: string
     }
-    const [searchParams, setSearchParams] = useSearchParams();
+    const [searchParams] = useSearchParams();
 
     const [searchResultsNumber, setSearchResults] = useState(0)
     const [games, setGames] = useState<Game[]>([]);
@@ -39,7 +38,6 @@ const Content = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {games.map((game) => (
                     <Product
-                        gameName={game.gameName}
                         title={game.title}
                         image={game.imageSrc}
                         region={game.region}

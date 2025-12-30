@@ -14,7 +14,6 @@ import {
 function Home() {
     type Game = {
         id: number,
-        gameName: string,
         title: string,
         imageSrc: string,
         region: string,
@@ -56,7 +55,6 @@ function Home() {
                             <CarouselItem className="pl-4 basis-1/4">
                                 <div className="p-1">
                                     <Product
-                                        gameName={game.gameName}
                                         title={game.title}
                                         image={game.imageSrc}
                                         region={game.region}

@@ -39,7 +39,7 @@ export const getGames = async(req:express.Request, res:express.Response)=>{
             const games = await prisma.$queryRaw`SELECT * FROM "Game" WHERE SIMILARITY("gameName", ${search}) > 0.2;`;
             res.json(games)
         }
-        ç
+        
     }
     catch(error){
         res.status(500).json({error:"Error"})

@@ -5,9 +5,8 @@ import { CiSearch } from "react-icons/ci";
 import SearchResultsList from "./SearchResultsList";
 
 
-
-
-const Search = ({ setResults, searchResults }) => {
+const Search = () => {
+    const [searchResults, setResults] = useState([]);
     const [input, setInput] = useState("");
     const isOpen = searchResults.length > 0
 

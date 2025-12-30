@@ -6,11 +6,10 @@ import Search from "./SearchBar"
 import { Button } from "@/components/ui/button"
 import { CartIcon } from "../icons/akar-icons-cart"
 import eneba_icon  from "../../assets/eneba_icon.png"
-import { useState } from "react"
 
 
 const Header = () => {
-    const [searchResults, setResults] = useState([]);
+    
     return (
 
         <header className="w-full bg-[#4618ac] h-24">
@@ -23,7 +22,7 @@ const Header = () => {
                 </div>
                 <div className="min-w-[50%]">
                     <div className="relative mr-5 border">
-                        <Search setResults={setResults} searchResults={searchResults} />
+                        <Search/>
 
                     </div>
 

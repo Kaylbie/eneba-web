@@ -4,7 +4,6 @@ import GamePlatform from "./GamePlatform";
 
 
 interface ProductProps {
-    gameName:string,
     title: string,
     image: string,
     region: string,
@@ -16,7 +15,6 @@ interface ProductProps {
 
 
 const Product = ({
-    gameName,
     title,
     image,
     region,
