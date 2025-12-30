@@ -36,7 +36,7 @@ export const getGames = async(req:express.Request, res:express.Response)=>{
             res.json(games)
         }
         else{
-            const games = await prisma.$queryRaw`SELECT * FROM "Game" WHERE SIMILARITY("gameName", ${search}) > 0.2;`;
+            const games = await prisma.$queryRaw` SELECT *, word_similarity(${search}, title) AS score FROM "Game" WHERE ${search} <% title ORDER BY ${search} <<-> title LIMIT 10;`;
             res.json(games)
         }
         

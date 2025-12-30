@@ -16,7 +16,6 @@ const Content = () => {
         isAvailable: boolean,
         platform: string
     }
-    const API_BASE = import.meta.env.VITE_FORTAS_API_BASE;
 
     const [searchParams] = useSearchParams();
 
@@ -24,7 +23,7 @@ const Content = () => {
     const [games, setGames] = useState<Game[]>([]);
     
     useEffect(() => {
-        axios.get(`${API_BASE}/list?search=${searchParams.get("text")}`).then((response) => {
+        axios.get(`${import.meta.env.VITE_API_KEY}/list?search=${searchParams.get("text")}`).then((response) => {
             setGames(response.data);
             setSearchResults(response.data.length)
         })

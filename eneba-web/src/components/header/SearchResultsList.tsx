@@ -11,6 +11,7 @@ type SearchResult = {
 type SearchResultsListProps = {
   searchResults: SearchResult[]
 }
+
 const SearchResultsList = ({ searchResults}: SearchResultsListProps) => {
     return (
         <>

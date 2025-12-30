@@ -23,8 +23,6 @@ function Home() {
         isAvailable: boolean,
         platform: string
     }
-    const API_BASE = import.meta.env.VITE_FORTAS_API_BASE;
-
 
     const [games, setGames] = useState<Game[]>([]);
     const shuffle = <T,>(array: T[]): T[] => {
@@ -37,7 +35,7 @@ function Home() {
     }
 
     useEffect(() => {
-        axios.get(`${API_BASE}/list`).then((response) => {
+        axios.get(`${import.meta.env.VITE_API_KEY}/list`).then((response) => {
             setGames(shuffle(response.data));
         })
             .catch((err) => {
