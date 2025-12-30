@@ -6,15 +6,15 @@ const eneba = express();
 const port = 3000;
 
 const options = {
-  origin: ['http://localhost:5173', 'http://localhost'],
+  origin: ['http://localhost:5173', 'http://localhost', 'https://fortas.app'],
 };
 
 eneba.use(cors(options));
 
 eneba.use(express.json())
 
-eneba.get("/list", getGames);
-eneba.post("/game/insert", postGame);
+eneba.get("/api/list", getGames);
+eneba.post("/api/game/insert", postGame);
 
 
 
