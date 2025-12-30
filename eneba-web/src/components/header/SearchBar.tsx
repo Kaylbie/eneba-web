@@ -11,7 +11,7 @@ const Search = () => {
     const isOpen = searchResults.length > 0
 
     const fetchData = (value: string) => {
-        axios.get(`http://localhost:3000/list?search=${String(value).trim()}`).then((response) => {
+        axios.get(`${import.meta.env.VITE_API_KEY}/list?search=${String(value).trim()}`).then((response) => {
             setResults(response.data)
         })
     }
