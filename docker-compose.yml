@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+  db:
+    image: postgres:18.1
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
+  frontend:
+    build: ./eneba-web
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
+
+  backend:
+    build: ./eneba-server
+    ports:
+      - "3000:3000"
+    env_file:
+      - ./eneba-server/.env
+    environment:
+      NODE_ENV: production
+volumes:
+  pgdata:

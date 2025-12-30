@@ -1,5 +1,5 @@
 import express from 'express'
-import { prisma } from './lib/prisma.ts'
+import { prisma } from './lib/prisma'
 
 
 export const postGame = async(req:express.Request, res:express.Response)=>{
