@@ -22,5 +22,3 @@ services:
       - ./eneba-server/.env
     environment:
       NODE_ENV: production
-volumes:
-  pgdata:
